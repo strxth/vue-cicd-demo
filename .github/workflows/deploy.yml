@@ -28,9 +28,15 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      # Run lint
+      - name: Run lint
+        run: npm run lint
+        env:
+          CI: true # Ensure linting runs in CI mode (e.g., for ESLint)
+
       # Run tests
       - name: Run tests
-        run: npm run test
+        run: npm run test:unit
         env:
           CI: true # Ensure tests run in CI mode (e.g., for Jest or Vitest)
 
