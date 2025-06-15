@@ -1,0 +1,48 @@
+# Node modules
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn.lock
+package-lock.json
+
+# Build output (exclude dist if copied in Dockerfile, but included here for safety)
+dist/
+build/
+
+# Development files
+.devcontainer/
+.vscode/
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Git
+.git/
+.gitignore
+
+# Temporary files
+*.log
+*.cache
+*.tmp
+tmp/
+
+# Editor files
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# macOS-specific files
+.DS_Store
+
+# Test and coverage reports
+coverage/
+test/
+tests/
+__tests__
+
+# Other
+Dockerfile
+nginx.conf
+*.md
