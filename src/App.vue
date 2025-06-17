@@ -1,6 +1,31 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+
+import { ref, onMounted } from 'vue'
+
+const data = ref(null)
+const nodeApiRes = ref(null)
+
+const getNodeApi = async () => {
+  try {
+    const response = await fetch('http://localhost:8000/hello')
+    if (!response.ok) {
+      throw new Error('Failed to fetch')
+    }
+    console.log('🤙🤙🤙 node api called')
+
+    data.value = await response.json()
+    console.log(data.value)
+    nodeApiRes.value = data.value
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+onMounted(async () => {
+  await getNodeApi()
+})
 </script>
 
 <template>
@@ -14,6 +39,10 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/">Home 🏠</RouterLink>
         <RouterLink to="/about">About 👋</RouterLink>
       </nav>
+      <br />
+      <pre>
+        {{ nodeApiRes }}
+      </pre>
     </div>
   </header>
 
