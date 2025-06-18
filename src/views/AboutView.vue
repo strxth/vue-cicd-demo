@@ -1,6 +1,6 @@
 <template>
   <div class="about">
-    <h1>About This Project</h1>
+    <h1>About This Project Pull Request</h1>
   </div>
 </template>
 
